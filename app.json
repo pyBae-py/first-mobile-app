@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "awesomeproject",
-    "slug": "awesomeproject",
+    "name": "firstmobileapp",
+    "slug": "firstmobileapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,6 +21,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "",
+    "githubUrl": "https://github.com/pyBae-py/first-mobile-app.git"
   }
 }

@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import { View, Button, Text } from 'react-native'
+import { View, Text } from 'react-native'
+import MyButton from './components/mybutton.jsx'
 
 const App = () => {
   const [count, setCount] = useState(0)
 
-  const handleCount = () => {
-    setCount(count++)
-  }
+
   return (
     <View
       style={{
@@ -23,14 +22,14 @@ const App = () => {
       >
         {count}
       </Text>
-      <Button
+      <MyButton
         onPress={() => {
           setCount(count + 1)
         }}
         title={'+'}
       />
       <Text></Text>
-      <Button
+      <MyButton
         onPress={() => {
           if (count === 0) {
             alert("I can't decrement more")
@@ -41,7 +40,7 @@ const App = () => {
         title={'-'}
       />
       <Text></Text>
-      <Button
+      <MyButton
         onPress={() => {
           setCount(0)
         }}
