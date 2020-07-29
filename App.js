@@ -1,19 +1,13 @@
 import React, { useState } from 'react'
-import { View, Text } from 'react-native'
+import { ScrollView, Text, StyleSheet } from 'react-native'
 import MyButton from './components/mybutton.jsx'
+import { Main } from './styles'
 
 const App = () => {
   const [count, setCount] = useState(0)
 
-
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        padding: 50,
-      }}
-    >
+    <ScrollView style={styles.container}>
       <Text
         style={{
           padding: 15,
@@ -28,7 +22,7 @@ const App = () => {
         }}
         title={'+'}
       />
-      <Text></Text>
+
       <MyButton
         onPress={() => {
           if (count === 0) {
@@ -39,15 +33,28 @@ const App = () => {
         }}
         title={'-'}
       />
-      <Text></Text>
+
       <MyButton
         onPress={() => {
+          if (count === 0) {
+            alert('Count is already 0')
+            return
+          }
           setCount(0)
         }}
         title={'Reset'}
       />
-    </View>
+    </ScrollView>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: Main.bgColor,
+    padding: Main.padding,
+    margin: Main.margin,
+    marginTop: Main.marginTop,
+  },
+})
 
 export default App

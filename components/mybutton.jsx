@@ -3,7 +3,13 @@ import { View, Button } from 'react-native'
 
 const MyButton = (props) => {
   return (
-    <View>
+    <View
+      style={{
+        margin: 10,
+        width: 200,
+        alignSelf: 'center',
+      }}
+    >
       <Button title={props.title} onPress={props.onPress} />
     </View>
   )
