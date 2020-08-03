@@ -1,5 +1,17 @@
-export const bgColor = 'plum'
-export const padding = 25
-export const margin = 25
-export const marginTop = 50
-export const center = 'center'
+export const container = {
+  padding: 50,
+}
+export const normalTextField = {
+  borderBottomColor: 'black',
+  borderWidth: 1,
+  padding: 10,
+  width: '80%',
+}
+export const row1 = {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+}
+export const button = {
+  width: 30,
+}
