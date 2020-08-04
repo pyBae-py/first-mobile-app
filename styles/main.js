@@ -13,5 +13,13 @@ export const row1 = {
   alignItems: 'center',
 }
 export const button = {
-  width: 30,
+  width: 100,
+}
+export const list = {
+  padding: 10,
+  backgroundColor: 'gray',
+  marginTop: 10,
+}
+export const listItem = {
+  color: 'white',
 }

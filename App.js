@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import { ScrollView, Button, Text, View, TextInput, StyleSheet, Vibration } from 'react-native'
+import { ScrollView, StyleSheet, Vibration, FlatList } from 'react-native'
 
 // Containers
+import GoalItem from './components/goalItem'
+import GoalInput from './components/goalInput'
 
 // Style Components
 import { Main } from './styles/index'
@@ -19,28 +21,44 @@ const App = () => {
       alert('Please enter something, first')
       return
     }
-    setGoals((goals) => [...goals, enteredGoal])
+    setGoals((goals) => [
+      ...goals,
+      { key: Math.random().toString(), value: enteredGoal },
+    ])
+    setEnteredGoal('')
     Vibration.vibrate(40)
   }
 
+  const onDelete = (goalKey) => {
+    setGoals((goals) => {
+      return goals.filter((goal) => {
+        goal.key !== goalKey
+      })
+    })
+  }
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.row1}>
-        <TextInput style={styles.textInput} placeholder="Enter Text" value={enteredGoal} onChangeText={handleEnteredGoal} />
-        <Button title="+" onPress={enterGoal} />
-      </View>
-      <View>
-        {goals.map((item) => (
-          <Text key={item}>{item}</Text>
-        ))}
-      </View>
+      <GoalInput
+        enterGoal={enterGoal}
+        enteredGoal={enteredGoal}
+        handleEnteredGoal={handleEnteredGoal}
+      />
+      <FlatList
+        data={goals}
+        keyExtractor={(item, index) => item.key}
+        renderItem={(itemData) => (
+          <GoalItem
+            id={itemData.item.key}
+            title={itemData.item.value}
+            onDelete={onDelete}
+          />
+        )}
+      ></FlatList>
     </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
   container: Main.container,
-  textInput: Main.normalTextField,
-  row1: Main.row1,
 })
 export default App
